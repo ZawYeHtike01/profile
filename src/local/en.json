@@ -1,0 +1,27 @@
+{
+  "name": "Zaw Ye Htike",
+
+  "role": "Web Developer",
+  "heroTitle1": "Building Practical",
+  "heroTitle2": "Web Applications",
+
+  "heroDesc": "JavaScript-focused developer creating scalable, user-friendly applications. Creator of BaitoKanri.",
+
+  "viewProjects": "View Projects",
+  "contact": "Contact",
+
+  "aboutTitle": "About Me",
+  "aboutDesc": "I’m a Japan-based web developer focused on real-world problem solving. I value clean UI, maintainable code, and performance. BaitoKanri was built to help students manage part-time jobs efficiently.",
+
+  "projectsTitle": "Featured Projects",
+  "liveDemo": "Live Demo",
+
+  "skillsTitle": "Skills",
+  "frontend": "Frontend",
+  "backend": "Backend",
+  "tools": "Tools",
+
+  "workTogether": "Let’s Work Together",
+  "openToWork": "Open for freelance and full-time opportunities.",
+  "contactMe": "Contact Me"
+}

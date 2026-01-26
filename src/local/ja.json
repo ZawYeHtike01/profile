@@ -1,0 +1,27 @@
+{
+  "name": "ズォーイェータイ",
+
+  "role": "Webデベロッパー",
+  "heroTitle1": "実用的なWebアプリケーションを",
+  "heroTitle2": "開発しています",
+
+  "heroDesc": "JavaScriptを中心に、拡張性が高く使いやすいWebアプリケーションを開発しています。学生向けアルバイト管理アプリ「BaitoKanri」の開発者です。",
+
+  "viewProjects": "プロジェクトを見る",
+  "contact": "お問い合わせ",
+
+  "aboutTitle": "自己紹介",
+  "aboutDesc": "日本在住のWebデベロッパーです。実務に役立つ開発を重視し、分かりやすいUI、保守性の高いコード、パフォーマンスを大切にしています。BaitoKanriは、学生がアルバイトを効率的に管理できるように開発しました。",
+
+  "projectsTitle": "制作実績",
+  "liveDemo": "デモを見る",
+
+  "skillsTitle": "スキル",
+  "frontend": "フロントエンド",
+  "backend": "バックエンド",
+  "tools": "ツール",
+
+  "workTogether": "一緒に仕事をしませんか",
+  "openToWork": "フリーランス・正社員のどちらも対応可能です。",
+  "contactMe": "お問い合わせ"
+}

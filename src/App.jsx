@@ -17,10 +17,16 @@ import {
   ThemeProvider,
   createTheme,
   useMediaQuery,
-  Link
+  Link,
 } from "@mui/material";
 import { GitHub, Email, Launch } from "@mui/icons-material";
 import { useRef } from "react";
+import i18n from "./i18n";
+import { useTranslation } from "react-i18next";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const theme = createTheme({
   palette: {
@@ -60,7 +66,8 @@ const Portfolio = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
-
+  const [age, setAge] = React.useState(i18n.lng || "ja");
+  const { t, si18n } = useTranslation();
   const projects = [
     {
       title: "BaitoKanri",
@@ -86,11 +93,30 @@ const Portfolio = () => {
         <Container maxWidth="lg">
           <Toolbar sx={{ justifyContent: "space-between", px: { xs: 0 } }}>
             <Typography fontWeight="bold" color="primary.main">
-              Zaw Ye Htike
+              {t("name")}
             </Typography>
 
             <Stack direction="row" spacing={1}>
-              <IconButton href="https://github.com/ZawYeHtike01" color="inherit">
+              <FormControl variant="standard" sx={{ m: 1, minWidth: 60,textAlign:"center" }}>
+                
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  value={age}
+                  onChange={(e) => {i18n.changeLanguage(e.target.value)
+                    setAge(e.target.value)
+                  }}
+                  label="Age"
+                  disableUnderline
+                  sx={{textAlign:"center"}}
+                >
+                  <MenuItem value={"en"}>English</MenuItem>
+                  <MenuItem value={"ja"}>日本語</MenuItem>
+                </Select>
+              </FormControl>
+              <IconButton
+                href="https://github.com/ZawYeHtike01"
+                color="inherit"
+              >
                 <GitHub />
               </IconButton>
             </Stack>
@@ -107,11 +133,11 @@ const Portfolio = () => {
           }}
         >
           <Typography variant="overline" color="primary" letterSpacing={3}>
-            Web Developer
+            {t("role")}
           </Typography>
 
           <Typography variant="h1" sx={{ mt: 2, mb: 3 }}>
-            Building Practical <br /> Web Applications
+            {t("heroTitle1")}<br /> {t("heroTitle2")}
           </Typography>
 
           <Typography
@@ -319,7 +345,7 @@ const Portfolio = () => {
               Contact Me
             </Button>
             <Button
-            href="https://github.com/ZawYeHtike01"
+              href="https://github.com/ZawYeHtike01"
               fullWidth={isMobile}
               variant="outlined"
               size="large"
