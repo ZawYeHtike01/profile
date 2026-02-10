@@ -149,8 +149,7 @@ const Portfolio = () => {
               fontSize: { xs: "1rem", md: "1.15rem" },
             }}
           >
-            JavaScript-focused developer creating scalable, user-friendly
-            applications. Creator of{" "}
+            {t("heroDesc")}{" "}
             <strong>
               <Link
                 href="https://baitokanri.site/"
@@ -180,7 +179,7 @@ const Portfolio = () => {
               variant="contained"
               size="large"
             >
-              View Projects
+              {t("viewProjects")}
             </Button>
             <Button
               onClick={() => {
@@ -193,28 +192,23 @@ const Portfolio = () => {
               variant="outlined"
               size="large"
             >
-              Contact
+              {t("contact")}
             </Button>
           </Stack>
         </Box>
 
         <Box sx={{ py: { xs: 6, md: 10 }, maxWidth: 900, mx: "auto" }}>
           <Typography variant="h4" sx={{ mb: 3 }}>
-            About Me
+            {t("aboutTitle")}
           </Typography>
           <Typography color="text.secondary" lineHeight={1.8}>
-            I’m a Japan-based web developer focused on real-world problem
-            solving. I value clean UI, maintainable code, and performance.
-            <br />
-            <br />
-            BaitoKanri was built to help students manage part-time jobs
-            efficiently.
+            {t("aboutDesc")}
           </Typography>
         </Box>
 
         <Box ref={projectsRef} sx={{ py: { xs: 6, md: 10 } }}>
           <Typography variant="h4" sx={{ mb: 5 }}>
-            Featured Projects
+           {t("projectsTitle")}
           </Typography>
 
           <Grid container spacing={3}>
@@ -257,7 +251,7 @@ const Portfolio = () => {
                         color: "primary.main",
                       }}
                     >
-                      Live Demo
+                      {t("liveDemo")}
                     </Button>
                   </CardActions>
                 </Card>
@@ -273,21 +267,21 @@ const Portfolio = () => {
           }}
         >
           <Typography variant="h4" sx={{ mb: 5, textAlign: "center" }}>
-            Skills
+            {t("skillsTitle")}
           </Typography>
 
           <Grid container spacing={3}>
             {[
               {
-                title: "Frontend",
+                title: `${t("frontend")}`,
                 items: ["React", "MUI", "Responsive UI", "JavaScript (ES6+)"],
               },
               {
-                title: "Backend",
+                title: `${t("backend")}`,
                 items: ["Firebase", "REST API"],
               },
               {
-                title: "Tools",
+                title: `${t("Tools")}`,
                 items: ["Git", "GitHub", "Vite", "Figma"],
               },
             ].map((skill) => (
@@ -324,10 +318,10 @@ const Portfolio = () => {
           sx={{ py: { xs: 6, md: 10 }, textAlign: "center" }}
         >
           <Typography variant="h4" sx={{ mb: 2 }}>
-            Let’s Work Together
+            {t("workTogether")}
           </Typography>
           <Typography color="text.secondary" sx={{ mb: 4 }}>
-            Open for freelance and full-time opportunities.
+            {t("openToWork")}
           </Typography>
 
           <Stack
@@ -342,7 +336,7 @@ const Portfolio = () => {
               startIcon={<Email />}
               href="mailto:zawyaehtike9.adv@gmail.com"
             >
-              Contact Me
+              {t("contactMe")}
             </Button>
             <Button
               href="https://github.com/ZawYeHtike01"
