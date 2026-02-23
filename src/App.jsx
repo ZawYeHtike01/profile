@@ -93,7 +93,7 @@ const Portfolio = () => {
     emailjs
       .sendForm(
         "service_gr7wgbo",
-        "template_vlc8u3o",
+        "template_ax4stfo",
         form.current,
         "PwR-v0D-srQ9_3__o",
       )
