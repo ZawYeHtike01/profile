@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -18,7 +18,12 @@ import {
   createTheme,
   useMediaQuery,
   Link,
+  TextField,
 } from "@mui/material";
+import { FaLine } from "react-icons/fa";
+import { EmailJSResponseStatus } from "@emailjs/browser";
+import emailjs from "@emailjs/browser";
+import { Snackbar } from "@mui/material";
 import { GitHub, Email, Launch } from "@mui/icons-material";
 import { useRef } from "react";
 import i18n from "./i18n";
@@ -27,6 +32,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { from } from "list";
 
 const theme = createTheme({
   palette: {
@@ -63,6 +69,8 @@ const theme = createTheme({
 });
 
 const Portfolio = () => {
+  const [msg, setMsg] = useState(null);
+  const [loading, setLoading] = useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
@@ -76,6 +84,30 @@ const Portfolio = () => {
       link: "https://baitokanri.site/",
     },
   ];
+
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_gr7wgbo",
+        "template_vlc8u3o",
+        form.current,
+        "PwR-v0D-srQ9_3__o",
+      )
+      .then(() => {
+        setMsg("Email sent successfully!");
+        setLoading(false);
+        form.current.reset();
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        setMsg("Failed to send email.");
+        setLoading(false);
+      });
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -97,17 +129,20 @@ const Portfolio = () => {
             </Typography>
 
             <Stack direction="row" spacing={1}>
-              <FormControl variant="standard" sx={{ m: 1, minWidth: 60,textAlign:"center" }}>
-                
+              <FormControl
+                variant="standard"
+                sx={{ m: 1, minWidth: 60, textAlign: "center" }}
+              >
                 <Select
                   labelId="demo-simple-select-standard-label"
                   value={age}
-                  onChange={(e) => {i18n.changeLanguage(e.target.value)
-                    setAge(e.target.value)
+                  onChange={(e) => {
+                    i18n.changeLanguage(e.target.value);
+                    setAge(e.target.value);
                   }}
                   label="Age"
                   disableUnderline
-                  sx={{textAlign:"center"}}
+                  sx={{ textAlign: "center" }}
                 >
                   <MenuItem value={"en"}>English</MenuItem>
                   <MenuItem value={"ja"}>日本語</MenuItem>
@@ -137,7 +172,8 @@ const Portfolio = () => {
           </Typography>
 
           <Typography variant="h1" sx={{ mt: 2, mb: 3 }}>
-            {t("heroTitle1")}<br /> {t("heroTitle2")}
+            {t("heroTitle1")}
+            <br /> {t("heroTitle2")}
           </Typography>
 
           <Typography
@@ -208,7 +244,7 @@ const Portfolio = () => {
 
         <Box ref={projectsRef} sx={{ py: { xs: 6, md: 10 } }}>
           <Typography variant="h4" sx={{ mb: 5 }}>
-           {t("projectsTitle")}
+            {t("projectsTitle")}
           </Typography>
 
           <Grid container spacing={3}>
@@ -281,7 +317,7 @@ const Portfolio = () => {
                 items: ["Firebase", "REST API"],
               },
               {
-                title: `${t("Tools")}`,
+                title: `${t("tools")}`,
                 items: ["Git", "GitHub", "Vite", "Figma"],
               },
             ].map((skill) => (
@@ -315,8 +351,60 @@ const Portfolio = () => {
 
         <Box
           ref={contactRef}
-          sx={{ py: { xs: 6, md: 10 }, textAlign: "center" }}
+          sx={{
+            py: { xs: 6, md: 10 },
+            textAlign: "center",
+          }}
         >
+          <Typography variant="h4" sx={{ mb: 5, textAlign: "center" }}>
+            {t("mail")}
+          </Typography>
+
+          <Box
+            component="form"
+            ref={form}
+            onSubmit={sendEmail}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: { xs: "80%", md: "50%" },
+              gap: 3,
+              justifyContent: "center",
+              margin: "auto",
+            }}
+          >
+            <TextField
+              type="text"
+              label="Your Name"
+              name="user_name"
+              required
+            ></TextField>
+            <TextField
+              type="email"
+              label="Your Email"
+              name="user_email"
+              required
+            ></TextField>
+            <TextField
+              type="text"
+              label="Message"
+              name="message"
+              multiline
+              rows={4}
+              required
+            ></TextField>
+            <Button
+              variant="contained"
+              type="submit"
+              disabled={!form}
+              size="large"
+              fullWidth
+            >
+              {loading ? "Sending.." : "Submit"}
+            </Button>
+          </Box>
+        </Box>
+        <Box sx={{ py: { xs: 6, md: 10 }, textAlign: "center" }}>
           <Typography variant="h4" sx={{ mb: 2 }}>
             {t("workTogether")}
           </Typography>
@@ -333,8 +421,8 @@ const Portfolio = () => {
               fullWidth={isMobile}
               variant="contained"
               size="large"
-              startIcon={<Email />}
-              href="mailto:zawyaehtike9.adv@gmail.com"
+              startIcon={<FaLine/>}
+              href="https://line.me/ti/p/_89mp8ymsX"
             >
               {t("contactMe")}
             </Button>
@@ -352,10 +440,20 @@ const Portfolio = () => {
 
         <Box sx={{ py: 4, textAlign: "center", opacity: 0.6 }}>
           <Typography variant="body2">
-            © 2025 Zaw Ye Htike · React & MUI
+            © 2026 Zaw Ye Htike · React & MUI
           </Typography>
         </Box>
       </Container>
+      <Snackbar
+        anchorOrigin={{
+          horizontal: "center",
+          vertical: "bottom",
+        }}
+        open={Boolean(msg)}
+        autoHideDuration={6000}
+        onClose={() => setMsg(null)}
+        message={msg}
+      ></Snackbar>
     </ThemeProvider>
   );
 };

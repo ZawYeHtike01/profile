@@ -19,9 +19,10 @@
   "skillsTitle": "スキル",
   "frontend": "フロントエンド",
   "backend": "バックエンド",
-  "Tools": "ツール",
+  "tools": "ツール",
 
   "workTogether": "一緒に仕事をしませんか",
   "openToWork": "フリーランス・正社員のどちらも対応可能です。",
-  "contactMe": "お問い合わせ"
+  "contactMe": "お問い合わせ",
+  "mail":"連絡先"
 }
