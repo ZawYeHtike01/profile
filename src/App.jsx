@@ -32,7 +32,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { from } from "list";
+import { tr } from "framer-motion/client";
+// import { from } from "list";
 
 const theme = createTheme({
   palette: {
@@ -84,6 +85,11 @@ const Portfolio = () => {
       link: "https://baitokanri.site/",
     },
   ];
+  const skillsheet = t("skillsheet", { returnObjects: true });
+
+  const profile = t("profile", { returnObjects: true });
+
+  const getTouch=t("getInTouch",{returnObjects:true});
 
   const form = useRef();
   const sendEmail = (e) => {
@@ -233,13 +239,100 @@ const Portfolio = () => {
           </Stack>
         </Box>
 
-        <Box sx={{ py: { xs: 6, md: 10 }, maxWidth: 900, mx: "auto" }}>
-          <Typography variant="h4" sx={{ mb: 3 }}>
+        <Box sx={{ py: { xs: 8, md: 12 } }}>
+          <Typography variant="h4" sx={{ mb: 6, textAlign: "center" }}>
             {t("aboutTitle")}
           </Typography>
-          <Typography color="text.secondary" lineHeight={1.8}>
-            {t("aboutDesc")}
-          </Typography>
+
+          <Card
+            variant="outlined"
+            sx={{
+              p: { xs: 3, md: 4 },
+              mb: 6,
+              textAlign: "center",
+              backdropFilter: "blur(10px)",
+              background: "rgba(255,255,255,0.02)",
+            }}
+          >
+            <Typography variant="h6" fontWeight="bold">
+              {t("name")}
+            </Typography>
+            <Typography color="text.secondary">
+              {t("born")} <br />
+              {t("school")}
+            </Typography>
+          </Card>
+
+          <Grid container spacing={4}>
+            {profile.map((item, index) => (
+              <Grid item xs={12} md={6} key={index}>
+                <Card
+                  variant="outlined"
+                  sx={{
+                    p: { xs: 3, md: 4 },
+                    height: "100%",
+                    transition: "0.3s",
+                    background: "rgba(255,255,255,0.02)",
+                    "&:hover": {
+                      transform: "translateY(-6px)",
+                      borderColor: "primary.main",
+                    },
+                  }}
+                >
+                  <Typography
+                    variant="overline"
+                    sx={{ color: "primary.main", letterSpacing: 2 }}
+                  >
+                    {item.year}
+                  </Typography>
+
+                  <Typography variant="h6" fontWeight="bold" sx={{ my: 1 }}>
+                    {item.title}
+                  </Typography>
+
+                  <Typography color="text.secondary">{item.desc}</Typography>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+          <Card
+            variant="outlined"
+            sx={{
+              p: { xs: 3, md: 4 },
+              my: 6,
+              textAlign: "center",
+              backdropFilter: "blur(10px)",
+              background: "rgba(255,255,255,0.02)",
+            }}
+          >
+            <Typography variant="h6" fontWeight="bold">
+              {t("storyTitle")}
+            </Typography>
+            <Typography color="text.secondary" sx={{textAlign:"left",mt:5}}>
+              {t("story")}
+            </Typography>
+          </Card>
+          <Stack
+            direction="row"
+            spacing={2}
+            flexWrap="wrap"
+            justifyContent="center"
+            sx={{ gap: 2, mt: 20 }}
+          >
+            {skillsheet.map((skill) => (
+              <Chip
+                key={skill}
+                label={skill}
+                sx={{
+                  px: 2,
+                  py: 1,
+                  fontSize: "0.9rem",
+                  bgcolor: "rgba(0,230,118,0.1)",
+                  color: "primary.main",
+                }}
+              />
+            ))}
+          </Stack>
         </Box>
 
         <Box ref={projectsRef} sx={{ py: { xs: 6, md: 10 } }}>
@@ -375,19 +468,19 @@ const Portfolio = () => {
           >
             <TextField
               type="text"
-              label="Your Name"
+              label={getTouch[0]}
               name="user_name"
               required
             ></TextField>
             <TextField
               type="email"
-              label="Your Email"
+              label={getTouch[1]}
               name="user_email"
               required
             ></TextField>
             <TextField
               type="text"
-              label="Message"
+              label={getTouch[2]}
               name="message"
               multiline
               rows={4}
@@ -400,7 +493,7 @@ const Portfolio = () => {
               size="large"
               fullWidth
             >
-              {loading ? "Sending.." : "Submit"}
+              {loading ? t("sending") : t("submit")}
             </Button>
           </Box>
         </Box>
@@ -421,7 +514,7 @@ const Portfolio = () => {
               fullWidth={isMobile}
               variant="contained"
               size="large"
-              startIcon={<FaLine/>}
+              startIcon={<FaLine />}
               href="https://line.me/ti/p/_89mp8ymsX"
             >
               {t("contactMe")}

@@ -24,6 +24,50 @@
   "workTogether": "Let’s Work Together",
   "openToWork": "Open for freelance and full-time opportunities.",
   "contactMe": "Contact Me",
-  "mail":"Contact"
-  
+  "mail": "Get in touch",
+  "profile": [
+    {
+      "year": "2009 – 2019",
+      "title": "Basic Education & High School",
+      "desc": "Completed high school in Myanmar."
+    },
+    {
+      "year": "2021",
+      "title": "Family Business Support",
+      "desc": "Helped manage parents’ shop and developed responsibility & communication skills."
+    },
+    {
+      "year": "2023",
+      "title": "Started Japanese & IT Study",
+      "desc": "Passed IT Passport and JLPT N4."
+    },
+    {
+      "year": "2024",
+      "title": "Advanced Japanese Level",
+      "desc": "Passed J-Test D Level (N3) and JLPT N2."
+    },
+    {
+      "year": "2025 – Present",
+      "title": "Study in Japan",
+      "desc": "Currently studying IT & Communication in Saga."
+    }
+  ],
+  "skillsheet": [
+    "IT Passport (Japan)",
+    "JLPT N2",
+    "React",
+    "MUI",
+    "Firebase",
+    "JavaScript",
+    "Git / GitHub",
+    "MERN Stack (Learning)"
+  ],
+  "born": "Born in 2003 · Myanmar",
+  "school": "Studying in Japan (Saga Women’s Junior College)",
+  "storyTitle": "My Story",
+  "story": "After completing high school in 2019, I faced challenges in continuing my education due to the political situation in Myanmar. During that period, I supported my family by helping manage our shop, where I developed strong responsibility, adaptability, and communication skills.In 2023, I made the decision to pursue my dream of studying in Japan. Through intensive study, I successfully passed the JLPT N2 and the IT Passport Examination. These experiences strengthened both my technical knowledge and my determination to grow internationally.Currently, I am studying IT and communication in Japan, focusing on web development and modern technologies such as React and the MERN stack. I am especially interested in how technology can improve communication and create meaningful user experiences.I am a positive, growth-oriented individual who values teamwork and continuous self-improvement. My goal is to build a career that connects technology and communication, contributing to society by developing solutions that are both practical and user-friendly.",
+  "getInTouch":["Your Name","Your Email","Message"],
+  "sending": "Sending...",
+  "submit": "Submit"
+
 }
